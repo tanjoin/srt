@@ -17,7 +17,7 @@ if __name__ == "__main__":
                     result = line.replace(b'\\ufeff'.decode("unicode-escape"), "").replace(b'\\u305a\\u3093\\u3060\\u3082\\u3093(\\u30ce\\u30fc\\u30de\\u30eb),'.decode("unicode-escape"), "")
                     if len(result) > 0:
                         print(index, dt, result)
-                        text = f'{dt:%X.%f}'[:-3]
+                        text = f'{dt:%X,%f}'[:-3]
                         text = text + " --> "
                         add = int(len(result) / 6.25)
                         print(add)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
                             dt = dt.replace(second = dt.second + add - 60)
                         else:
                             dt = dt.replace(second = dt.second + add)
-                        text = text + f'{dt:%X.%f}'[:-3]
+                        text = text + f'{dt:%X,%f}'[:-3]
                         if (index > 1):
                             w.write("\n\n")
                         w.write(str(index) + "\n")
