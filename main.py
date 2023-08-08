@@ -27,10 +27,11 @@ if __name__ == "__main__":
                         else:
                             dt = dt.replace(second = dt.second + add)
                         text = text + f'{dt:%X.%f}'[:-3]
+                        if (index > 1):
+                            w.write("\n\n")
                         w.write(str(index) + "\n")
                         w.write(text + "\n")
-                        w.write(result + "\n")
-                        w.write("\n\n")
+                        w.write(result)
                         index = index + 1
                 lines.close()
                 w.close()
